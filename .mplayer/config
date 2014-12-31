@@ -1,0 +1,21 @@
+# Write your default config options here!
+
+ao=alsa
+
+#cache=8192
+cache=16384
+
+#channels=6
+#channels=2
+dvd-device=/dev/sr0
+
+lang=en
+alang=en
+slang=en
+unrarexec=/usr/bin/unrar
+
+af=scaletempo
+
+## temp ###
+#vo=x11
+#zoom=1
