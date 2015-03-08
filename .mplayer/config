@@ -16,6 +16,12 @@ unrarexec=/usr/bin/unrar
 
 af=scaletempo
 
-## temp ###
+## software video output ###
 #vo=x11
 #zoom=1
+
+## reset brightness, contrast, saturation and hue ##
+brightness=0
+contrast=0
+hue=0
+saturation=0
