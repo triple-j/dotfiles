@@ -1,0 +1,15 @@
+#!/bin/bash
+
+MERGED=$1
+LOCAL=$2
+REMOTE=$3
+BASE=$4
+
+#meld --diff "$LOCAL" "$MERGED" "$REMOTE" --diff "$BASE" "$LOCAL" --diff "$BASE" "$REMOTE"
+meld --diff "$BASE" "$LOCAL" &
+meld --diff "$BASE" "$REMOTE" &
+meld --diff "$LOCAL" "$MERGED" "$REMOTE" 
+
+#rm "$LOCAL"
+#rm "$REMOTE"
+#rm "$BASE"
