@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -xe
+
+FILE=$(tempfile --prefix=record)
+NOISE=$(tempfile --prefix=noise)
+NOISE_PROF=$(tempfile --prefix=noiseprofile)
+
+# Record some noise
+arecord -f dat --duration 1 $NOISE
+# Profile noise
+sox $NOISE -n noiseprof $NOISE_PROF
+
+# Record Test
+arecord \
+	--vumeter mono \
+	--format dat \
+	--duration 5 \
+	$FILE
+
+# Play with filtered noise
+sox $FILE -t wav - noisered $NOISE_PROF 0.21 | play -
+
+rm $FILE $NOISE $NOISE_PROF
